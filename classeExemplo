@@ -1,0 +1,36 @@
+class Animal:
+    def __init__(anim, cor, genero, andar):
+        anim.cor = cor
+        anim.genero = genero
+        anim.num_de_patas = andar
+
+    def falar (anim):
+        print("Ola sou um cachorro e sei falar!")
+
+    def andar (anim):
+        print("Estou andando sobre %i patas"%(anim.num_de_patas))
+
+    def amamentar(anim):
+        #.lower converte a entrada de dados do usuario para minuscula igual em html
+        #ao utilizar o [0] ele ver se a primeira letra da palavra é igual a m
+        if anim.genero.lower()[0] == "m":
+            print("Machos não amamentam")
+            return
+        print("Amamentando meu filhote")
+
+
+Rex = Animal("marron", "Macho", 4)
+Rex.falar()
+Rex.andar()
+Rex.amamentar()
+
+
+class Pessoa (Animal):
+    pass
+
+
+#aki em cima eu instanciei a classe pessoa dentro da classe animal e utilizar
+#os metodos da classe animal, sem precisar refazer eles
+#detalhe o contrutor deve estar vazio, caso ele tenha um construtor n funciona
+Lucas = Pessoa("Branco", "Desconhecida", 22)
+Lucas.falar()
