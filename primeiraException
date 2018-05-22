@@ -1,0 +1,31 @@
+class ValorRepetidoErro(Exception):
+    def __init__(self, n):
+        self.num = n
+    #toda vez q eu colocar um def str eu tenho q colocar um retorno
+    def __str__(self):
+        return 'Vixe! você já digitou esté valor %i antes!'%(self.num)
+
+def main():
+    # Critando um vetor
+    list = []
+    # vai rodar o vetor até a 3° do vetor
+    for i in range(3):
+        # while com true, é pra tipo enquanto continuar verdadeiro ele vai ficar rodando na try
+        while True:
+            try:
+                num = int(input("Digite um numero: "))
+                # break pra depois que digitar o numero ele sair
+                break
+                # valoueError ele verifica pra ver se tem algum erro
+            except ValueError:
+                print("Digite apenas numeros!!")
+        # se o num n estiver na lista
+        if num not in list:
+            # ele adiciona na lista com o uso do .append
+            list.append(num)
+        else:
+            # se n ele chama a classe ValorRepetidoErro, ai usa o comando raise
+            # e passar a variavel q utilizou no construtor
+            raise ValorRepetidoErro(num)
+
+main()
