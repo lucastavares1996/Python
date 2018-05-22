@@ -1,0 +1,38 @@
+class Animal:
+    def __init__(anim, cor, genero, andar):
+        anim.cor = cor
+        anim.genero = genero
+        anim.num_de_patas = andar
+
+    def falar (anim):
+        print("Ola sou um cachorro e sei falar!")
+
+    def andar (anim):
+        print("Estou andando sobre %i patas"%(anim.num_de_patas))
+
+    def amamentar(anim):
+        if anim.genero.lower() [0] == "m":
+            print("Machos não amamentam")
+            return
+        print("Amamentando meu filhote")
+
+
+class Pessoa (Animal):
+    def __init__(anim, cor, genero, andar, cabelo):
+        #ao utilizar o metodo super ele puxa os metodos da outra classe
+        #so não posso esquecer de passar ele no construtor
+        super(Pessoa, anim).__init__(cor, genero, andar)
+        anim.cabelo = "Preto"
+
+    #quando já tem um metodo igual em cima ja feito ai da um override e mostra oque está aki
+    def falar(anim):
+        print("Sou uma pessoa e sei falar")
+
+
+Lucas = Pessoa ("Branco", "Masculino", 2, "preto")
+Lucas.andar()
+Lucas.amamentar()
+Lucas.falar()
+#Lucas.cor é um atributo ai n precisa usar os () e deve usar um print, se n ele n aparece nada na tela
+print(Lucas.cor)
+print(Lucas.genero)
